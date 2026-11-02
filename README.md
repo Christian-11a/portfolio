@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Christian Esquillo · Portfolio
 
-## Getting Started
+My personal portfolio: a one-page site that shows the projects I designed and built, the small interface details I care about, and how to reach me.
 
-First, run the development server:
+![Portfolio preview](docs/preview.png)
 
-```bash
+## Highlights
+
+- **Project detail views** in a native `<dialog>`, with shareable links (`?project=taskbuddy`).
+- **Craft section** of live UI demos: a segmented control, a magnetic button, a spring switch and a macOS-style dock.
+- **3D line drawing cover**, generated from simple letter outlines (`src/lib/extrude.ts`) and traced in with CSS.
+- **Theme switch** that grows the new theme out of the button with the View Transitions API.
+- **Reduce motion switch** in the footer, remembered per visitor.
+- **GitHub contributions grid**, fetched on the server and cached for a day; it hides itself if the source is down.
+- **SEO and sharing:** Open Graph image, sitemap, robots file and Person structured data.
+
+## Stack
+
+Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS 4 · Motion · Phosphor Icons · Simple Icons · Vercel Analytics
+
+Tested with Vitest (unit) and Playwright (end-to-end, in Microsoft Edge on desktop and mobile).
+
+## Run locally
+
+Requires Node.js 20.9 or later.
+
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm test            # unit tests (Vitest)
+npx tsc --noEmit    # types
+npm run lint        # ESLint
+npm run build       # production build
+npm run test:e2e    # browser tests (Playwright, builds must exist first)
+```
 
-## Learn More
+Browser tests use the installed Microsoft Edge. Set `PLAYWRIGHT_CHANNEL=chrome` to use Chrome instead.
 
-To learn more about Next.js, take a look at the following resources:
+## Editing content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All text, links, projects and the tech stack live in [`src/content/site.ts`](src/content/site.ts). Components only render what is defined there.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Photo:** replace `public/profile.jpg`.
+- **Resume:** add `public/resume.pdf` and set the resume link's `href` to `"/resume.pdf"`. The button appears automatically.
+- **Project screenshots:** `public/projects/<slug>.png` (1280 × 800).
 
-## Deploy on Vercel
+## Deploying
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Import the repository in Vercel; no configuration is needed. The production URL is picked up automatically for canonical links and the sitemap. With a custom domain, set `NEXT_PUBLIC_SITE_URL` (for example `https://christianesquillo.dev`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Structure
+
+| Path | What lives there |
+| --- | --- |
+| `src/app` | Page, layout, metadata, icons, Open Graph image, sitemap, robots, 404 |
+| `src/components` | One component per section and interaction |
+| `src/content/site.ts` | All site content |
+| `src/lib` | Pure helpers: time, contributions, 3D extrusion, URL and motion state |
+| `tests` | Vitest unit tests |
+| `e2e` | Playwright browser tests |
