@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import * as site from "@/content/site";
 import { links, projects } from "@/content/site";
@@ -41,8 +43,10 @@ describe("site content", () => {
     }
   });
 
-  it("hides the resume until a PDF exists", () => {
-    expect(links.find((l) => l.kind === "resume")!.href).toBeNull();
+  it("links the resume PDF, and the file exists", () => {
+    const href = links.find((l) => l.kind === "resume")!.href;
+    expect(href).toBe("/resume.pdf");
+    expect(existsSync(join(process.cwd(), "public", "resume.pdf"))).toBe(true);
   });
 
   it("uses the public GitHub email", () => {

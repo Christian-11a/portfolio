@@ -48,7 +48,7 @@ Browser tests use the installed Microsoft Edge. Set `PLAYWRIGHT_CHANNEL=chrome` 
 All text, links, projects and the tech stack live in [`src/content/site.ts`](src/content/site.ts). Components only render what is defined there.
 
 - **Photo:** replace `public/profile.jpg`.
-- **Resume:** add `public/resume.pdf` and set the resume link's `href` to `"/resume.pdf"`. The button appears automatically.
+- **CV:** edit `cv/resume.html`, then run `npm run cv`. It writes the public copy to `public/resume.pdf` (no phone number) and, if `cv/private.json` has a `phone`, a private copy to `cv/out/`. Both private files are git-ignored.
 - **Project screenshots:** `public/projects/<slug>.png` (1280 × 800).
 
 ## Deploying

@@ -44,3 +44,7 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /blob-report/
+
+# CV: private details and private PDF never leave this machine
+/cv/private.json
+/cv/out/

@@ -14,7 +14,7 @@ export function LinkRow() {
             <a
               href={l.href!}
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              {...(l.kind === "resume" ? { download: "" } : {})}
+              {...(l.kind === "resume" ? { download: "Christian-Esquillo-CV.pdf" } : {})}
               className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm text-muted transition-colors hover:border-line-strong hover:text-fg active:scale-[0.98]"
             >
               <Icon size={15} />

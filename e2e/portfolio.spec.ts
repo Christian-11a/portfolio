@@ -98,6 +98,15 @@ test("unknown pages show the styled 404", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Christian Esquillo" })).toBeVisible();
 });
 
+test("the Resume button downloads the CV PDF", async ({ page, request }) => {
+  await page.goto("/");
+  const resume = page.getByRole("link", { name: "Resume" });
+  await expect(resume).toHaveAttribute("href", "/resume.pdf");
+  const pdf = await request.get("/resume.pdf");
+  expect(pdf.ok()).toBe(true);
+  expect(pdf.headers()["content-type"]).toContain("application/pdf");
+});
+
 test("SEO files are served", async ({ request }) => {
   expect((await request.get("/robots.txt")).ok()).toBe(true);
   expect(await (await request.get("/sitemap.xml")).text()).toContain("<urlset");

@@ -66,8 +66,8 @@ export const links: SocialLink[] = [
   { kind: "github", label: "GitHub", href: "https://github.com/Christian-11a" },
   { kind: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/christianesquillo" },
   { kind: "email", label: "Email", href: "mailto:christianesquillo01@gmail.com" },
-  // Add your CV to public/ (e.g. public/resume.pdf) and set href to "/resume.pdf".
-  { kind: "resume", label: "Resume", href: null },
+  // Built from cv/resume.html with `npm run cv` (public copy, no phone number).
+  { kind: "resume", label: "Resume", href: "/resume.pdf" },
 ];
 
 // REVIEW: descriptions, highlights and roles
