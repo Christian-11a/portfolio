@@ -27,7 +27,7 @@ try {
     await page.setContent(html, { waitUntil: "networkidle" });
     await page.evaluate(() => document.fonts.ready);
     mkdirSync(dirname(out), { recursive: true });
-    await page.pdf({ path: out, format: "A4", printBackground: true, preferCSSPageSize: true });
+    await page.pdf({ path: out, printBackground: true, preferCSSPageSize: true });
 
     const pages = (readFileSync(out, "latin1").match(/\/Type\s*\/Page[^s]/g) ?? []).length;
     console.log(`${out}: ${pages} page(s)${number ? ", with phone" : ", public"}`);
