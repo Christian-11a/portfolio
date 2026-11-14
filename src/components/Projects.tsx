@@ -8,7 +8,7 @@ export function Projects() {
       id="work"
       title="Selected work"
       count={projects.length}
-      intro="Live projects, from open-source tools to my team thesis. Open any project for the full story."
+      intro="Full-stack and frontend projects, from my team thesis to open-source tools. Open any project for the full story."
     >
       <ProjectGrid projects={projects} />
     </Section>

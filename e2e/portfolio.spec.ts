@@ -17,7 +17,7 @@ test.afterEach(async ({ page }) => {
 test("cards and headings have clean accessible names", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("button", { name: "TaskBuddy, view project details", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Selected work (5)", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Selected work (6)", exact: true })).toBeVisible();
 });
 
 test("home page renders the essentials", async ({ page }) => {
@@ -26,7 +26,7 @@ test("home page renders the essentials", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Christian Esquillo" })).toBeVisible();
   await expect(page.getByRole("img", { name: /CE monogram/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Selected work/ })).toBeVisible();
-  await expect(page.locator("article")).toHaveCount(5);
+  await expect(page.locator("article")).toHaveCount(6);
 });
 
 test("no sideways scrolling", async ({ page }) => {

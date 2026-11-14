@@ -1,5 +1,6 @@
 import {
   siCloudflare,
+  siCloudflareworkers,
   siCplusplus,
   siCss,
   siExpo,
@@ -15,6 +16,7 @@ import {
   siPostgresql,
   siPython,
   siRadixui,
+  siSqlite,
   siReact,
   siReactrouter,
   siStripe,
@@ -53,6 +55,8 @@ const icons: Record<string, SimpleIcon> = {
   Figma: siFigma,
   Vercel: siVercel,
   Cloudflare: siCloudflare,
+  "Cloudflare Workers": siCloudflareworkers,
+  SQLite: siSqlite,
   Vitest: siVitest,
   Stripe: siStripe,
 };

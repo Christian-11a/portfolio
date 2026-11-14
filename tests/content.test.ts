@@ -5,9 +5,10 @@ import * as site from "@/content/site";
 import { links, projects } from "@/content/site";
 
 describe("site content", () => {
-  it("features the five projects, thesis first", () => {
+  it("features six projects: thesis first, then Clam", () => {
     expect(projects.map((p) => p.slug)).toEqual([
       "taskbuddy",
+      "clam",
       "imageprep",
       "pagekit",
       "amara-bakery",
@@ -32,13 +33,21 @@ describe("site content", () => {
     expect(taskbuddy.contributions?.length).toBeGreaterThanOrEqual(3);
   });
 
+  it("presents me as full stack with a frontend focus", () => {
+    expect(site.profile.role).toBe("Full-Stack Developer, frontend focus");
+  });
+
+  it("marks Clam as a beta and everything else as live", () => {
+    for (const p of projects) expect(p.status ?? "Live").toBe(p.slug === "clam" ? "Beta" : "Live");
+  });
+
   it("gives every project an https live URL", () => {
     for (const p of projects) expect(p.liveUrl).toMatch(/^https:\/\//);
   });
 
-  it("hides the private Stillframe repo and links the rest", () => {
+  it("hides the private Stillframe and Clam repos and links the rest", () => {
     for (const p of projects) {
-      if (p.slug === "stillframe") expect(p.repoUrl).toBeNull();
+      if (p.slug === "stillframe" || p.slug === "clam") expect(p.repoUrl).toBeNull();
       else expect(p.repoUrl).toMatch(/^https:\/\/github\.com\/Christian-11a\//);
     }
   });

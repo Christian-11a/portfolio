@@ -103,7 +103,7 @@ function ProjectCard({
           <span>{project.category}</span>
           <span className="inline-flex items-center gap-1.5 text-accent">
             <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
-            Live
+            {project.status ?? "Live"}
           </span>
         </div>
 
@@ -164,7 +164,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
     <>
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((p, i) => (
-          <ProjectCard key={p.slug} project={p} featured={i === 0} onOpen={() => setProject(p.slug)} />
+          <ProjectCard key={p.slug} project={p} featured={i < 2} onOpen={() => setProject(p.slug)} />
         ))}
       </div>
       <ProjectDialog project={open} onClose={() => setProject(null)} />

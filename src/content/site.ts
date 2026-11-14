@@ -25,6 +25,8 @@ export interface Project {
   designNotes?: string[];
   /** For team projects: what I personally built. */
   contributions?: string[];
+  /** Badge on the card. Defaults to "Live". */
+  status?: "Live" | "Beta";
   role: string;
   year: string;
   liveUrl: string;
@@ -49,10 +51,10 @@ export interface Education {
 export const profile = {
   name: "Christian Esquillo",
   fullName: "Christian Gerald Emmanuel Esquillo",
-  role: "Frontend Developer & UI Designer",
+  role: "Full-Stack Developer, frontend focus",
   // REVIEW: headline, pitch, now and offline lines
   headline: "I design and build interfaces people enjoy using.",
-  pitch: "A Computer Science student shipping fast, accessible web apps.",
+  pitch: "A Computer Science student building full-stack web apps, frontend first.",
   now: "Shipping free, open-source browser tools and finishing my thesis, TaskBuddy.",
   offline: "Exploring new things and turning ideas into side projects.",
   location: "Philippines",
@@ -98,6 +100,32 @@ export const projects: Project[] = [
     liveUrl: "https://taskbuddy-nine-zeta.vercel.app",
     repoUrl: "https://github.com/Christian-11a/taskbuddy",
     tech: ["Next.js", "React Native", "Python", "PostgreSQL", "Xendit"],
+  },
+  {
+    slug: "clam",
+    name: "Clam",
+    category: "Solo, full-stack",
+    status: "Beta",
+    tagline: "A Filipino-first calorie and water tracker.",
+    description:
+      "An installable app with an orange-cat guide. It works offline, keeps every diary on the device, and puts Filipino food first.",
+    overview:
+      "A calorie and water tracker built for Filipino food, with an orange-cat guide. It runs as a web app you add to your phone's Home Screen, with native Android and iOS apps planned after launch.",
+    highlights: [
+      "Local-first: every diary stays on the device in SQLite, with no accounts and no sync.",
+      "A Cloudflare Worker serves the app, proxies food search and runs AI photo scans without storing user data.",
+      "Filipino food data (FNRI) first, then USDA and barcode lookup through Open Food Facts.",
+      "Works offline, and prompts you when a new version is ready.",
+    ],
+    designNotes: [
+      "Health rules built in: 18+ only, a minimum calorie limit, and an option to hide numbers.",
+      "Honest numbers: unknown nutrients stay unknown instead of showing 0, and every food shows its source.",
+    ],
+    role: "Design and development, solo",
+    year: "2026",
+    liveUrl: "https://clam.discipleat.workers.dev",
+    repoUrl: null,
+    tech: ["Expo", "React Native Web", "TypeScript", "SQLite", "Cloudflare Workers"],
   },
   {
     slug: "imageprep",
@@ -199,7 +227,7 @@ export const stack: StackGroup[] = [
     items: ["React", "Next.js", "Tailwind CSS", "Vite", "React Router", "Motion", "GSAP", "Radix UI"],
   },
   { title: "Mobile", items: ["React Native", "Expo"] },
-  { title: "Backend & data", items: ["Node.js", "Supabase", "PostgreSQL", "Firebase"] },
+  { title: "Backend & data", items: ["Node.js", "Supabase", "PostgreSQL", "SQLite", "Cloudflare Workers", "Firebase"] },
   { title: "Tools", items: ["Git", "GitHub", "Figma", "Vercel", "Cloudflare", "Vitest", "Playwright"] },
   { title: "Payments", items: ["Stripe", "Xendit"] },
 ];

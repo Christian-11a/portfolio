@@ -3,11 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Christian Gerald Emmanuel Esquillo - CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=block"
+      rel="stylesheet"
+    />
     <style>
-      /* Classic one-column CV: plain black text, real headings, easy for people and applicant tracking systems. */
+      /* One column, black text, real headings: easy to scan and readable by applicant tracking systems. */
       @page {
-        size: Letter;
-        margin: 0.55in 0.6in;
+        size: A4;
+        margin: 12mm 15mm;
       }
       * {
         box-sizing: border-box;
@@ -15,74 +21,99 @@
         padding: 0;
       }
       body {
-        font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
-        font-size: 10.6pt;
-        line-height: 1.38;
+        font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+        font-size: 10.4pt;
+        line-height: 1.4;
         color: #111;
       }
       a {
         color: inherit;
         text-decoration: none;
       }
-      header {
-        text-align: center;
-      }
-      h1 {
-        font-size: 19pt;
-        font-weight: 700;
-        line-height: 1.15;
-      }
-      .contact {
-        margin-top: 3pt;
-        font-size: 9.6pt;
-      }
-      /* Each contact item stays whole; the pipe trails its item so a wrapped line never starts with one.
-         An omitted item (the phone on the public copy) leaves no stray pipe. */
-      .contact > * {
-        white-space: nowrap;
-      }
-      .contact > *:not(:last-child)::after {
-        content: " |";
+      .muted {
         color: #555;
       }
-      section {
-        margin-top: 9pt;
-      }
-      h2 {
-        font-size: 10.6pt;
+      header h1 {
+        font-size: 22pt;
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        padding-bottom: 1.5pt;
-        border-bottom: 1px solid #111;
-        margin-bottom: 4pt;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
       }
-      .row {
-        display: flex;
-        justify-content: space-between;
-        gap: 12pt;
+      header .title {
+        margin-top: 2pt;
+        font-size: 12pt;
+        font-weight: 600;
       }
-      .item {
+      .contact {
         margin-top: 5pt;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1pt 14pt;
+        font-size: 9.6pt;
+        color: #333;
+      }
+      section {
+        margin-top: 10pt;
         break-inside: avoid;
       }
-      .item:first-of-type {
+      /* Heading with a thin line running beside it. */
+      h2 {
+        display: flex;
+        align-items: center;
+        gap: 8pt;
+        font-size: 10.4pt;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 5pt;
+        break-after: avoid;
+      }
+      h2::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #bbb;
+      }
+      .project {
+        margin-top: 7pt;
+        break-inside: avoid;
+      }
+      .project:first-of-type {
         margin-top: 0;
       }
-      .title {
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12pt;
+      }
+      h3 {
+        font-size: 10.8pt;
         font-weight: 700;
       }
+      h3 .desc {
+        font-weight: 400;
+      }
+      .side {
+        font-size: 9.4pt;
+        color: #444;
+        white-space: nowrap;
+      }
+      .tech {
+        font-size: 9.2pt;
+        color: #555;
+      }
       ul {
-        margin-top: 1.5pt;
-        padding-left: 15pt;
+        margin-top: 2pt;
+        padding-left: 14pt;
       }
       li {
         margin-top: 1pt;
       }
-      .lines p + p {
+      .skills p + p {
         margin-top: 2pt;
       }
-      b {
+      .skills p b {
         font-weight: 700;
       }
     </style>
@@ -90,109 +121,116 @@
   <body>
     <header>
       <h1>Christian Gerald Emmanuel Esquillo</h1>
+      <p class="title">Full-Stack Developer, frontend focus</p>
       <p class="contact">
         <span>Lipa City, Batangas, Philippines</span>
         <!--PHONE-->
         <a href="mailto:christianesquillo01@gmail.com">christianesquillo01@gmail.com</a>
-        <a href="https://github.com/Christian-11a">github.com/Christian-11a</a>
         <a href="https://christian-esquillo-portfolio.vercel.app">christian-esquillo-portfolio.vercel.app</a>
+        <a href="https://github.com/Christian-11a">github.com/Christian-11a</a>
         <a href="https://www.linkedin.com/in/christianesquillo">linkedin.com/in/christianesquillo</a>
       </p>
     </header>
 
     <section>
-      <h2>Professional Summary</h2>
+      <h2>Summary</h2>
       <p>
-        Frontend developer and Computer Science student who designs and builds fast, accessible web apps with React,
-        Next.js and TypeScript. Led the frontend of a team marketplace thesis across web and mobile, and ships
-        open-source browser tools that work without accounts or uploads. Cares about clear UI, motion and testing.
-      </p>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <div class="row">
-        <span><b>De La Salle Lipa</b>, Bachelor of Science in Computer Science</span>
-        <span>Expected Graduation: 2027</span>
-      </div>
-    </section>
-
-    <section class="lines">
-      <h2>Skills</h2>
-      <p><b>Languages:</b> TypeScript, JavaScript, HTML, CSS, Python</p>
-      <p><b>Frameworks:</b> React, Next.js, React Native, Expo, Tailwind CSS, Vite, Motion, GSAP, Radix UI</p>
-      <p>
-        <b>Databases &amp; Tools:</b> Supabase, PostgreSQL, Firebase, Git/GitHub, Vercel, Cloudflare Pages, Figma,
-        Vitest, Playwright
-      </p>
-      <p>
-        <b>Concepts:</b> Responsive design, accessibility (WCAG), design systems, web performance, testing,
-        AI-assisted development
-      </p>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <p>
-        <b>DataCamp:</b> AI-Assisted Coding for Developers; Introduction to AI Agents; Understanding Prompt
-        Engineering; Introduction to Python
+        Computer Science student who builds web and mobile apps end to end: React and React Native interfaces on
+        the front, Supabase, PostgreSQL and Cloudflare Workers behind them. I care most about clear, accessible UI and
+        I ship with tests. Looking for a frontend or full-stack web development internship.
       </p>
     </section>
 
     <section>
       <h2>Projects</h2>
 
-      <div class="item">
-        <p><span class="title">TaskBuddy (Thesis)</span> | Next.js, React Native, Expo, TypeScript, Supabase, Remotion</p>
+      <div class="project">
+        <div class="head">
+          <h3>TaskBuddy <span class="desc">· home-services marketplace, thesis</span></h3>
+          <span class="side">Lead frontend developer, team of 4 · 2026</span>
+        </div>
+        <p class="tech">Next.js, React Native, Expo, TypeScript, Supabase, PostgreSQL, Remotion</p>
         <ul>
-          <li>Led the frontend of a home-services marketplace where an ML model invites the best-matched providers.</li>
-          <li>Built most of the mobile app: client and provider flows, payments, messages and verification.</li>
-          <li>Built the marketing website, and produced a promo film and 17 narrated how-to videos.</li>
+          <li>Led the frontend of a marketplace where an ML model invites the best-matched providers to each job.</li>
+          <li>Built most of the mobile app: client and provider flows, payments, messages and ID verification.</li>
+          <li>Backend work in Supabase: certificate checks before hiring, fee locked at hire, Google Sign-In.</li>
+          <li>Built the marketing website and produced a promo film and 17 how-to videos with Remotion.</li>
         </ul>
       </div>
 
-      <div class="item">
-        <p><span class="title">ImagePrep</span> | React, TypeScript, Vite | imageprep.pages.dev</p>
+      <div class="project">
+        <div class="head">
+          <h3>Clam <span class="desc">· Filipino-first calorie tracker, solo</span></h3>
+          <span class="side">clam.discipleat.workers.dev · 2026, ongoing</span>
+        </div>
+        <p class="tech">Expo, React Native Web, TypeScript, SQLite, Cloudflare Workers, Workers AI</p>
         <ul>
-          <li>Open-source tool that resizes and converts images in batches, fully in the browser with no uploads.</li>
+          <li>Installable web app that works offline and keeps every diary on the device in SQLite.</li>
+          <li>Cloudflare Worker serves the app, proxies food search and runs AI photo scans without storing user data.</li>
+          <li>Filipino food data first, barcode lookup, and health guardrails such as a minimum calorie limit.</li>
         </ul>
       </div>
 
-      <div class="item">
-        <p><span class="title">PageKit</span> | React, TypeScript, pdf-lib, Playwright | pagekit-bdy.pages.dev</p>
+      <div class="project">
+        <div class="head">
+          <h3>ImagePrep <span class="desc">· open-source image tool</span></h3>
+          <span class="side">imageprep.pages.dev · 2026</span>
+        </div>
+        <p class="tech">React, TypeScript, Vite</p>
         <ul>
-          <li>Open-source PDF organizer to combine, reorder, rotate and split pages locally, with undo and redo.</li>
-          <li>Covered by end-to-end tests in real browsers.</li>
+          <li>Resizes and converts images in batches, entirely in the browser with no uploads.</li>
         </ul>
       </div>
 
-      <div class="item">
-        <p><span class="title">Amara Bakery</span> | Next.js, TypeScript, Tailwind CSS, GSAP | amara-bakery-iota.vercel.app</p>
+      <div class="project">
+        <div class="head">
+          <h3>PageKit <span class="desc">· open-source PDF organizer</span></h3>
+          <span class="side">pagekit-bdy.pages.dev · 2026</span>
+        </div>
+        <p class="tech">React, TypeScript, pdf-lib, Playwright</p>
         <ul>
-          <li>Designed and built a bakery storefront with a full demo ordering flow and scroll-driven animations.</li>
+          <li>Combine, reorder, rotate and split PDF pages locally, with undo, redo and browser tests.</li>
         </ul>
       </div>
 
-      <div class="item">
-        <p>
-          <span class="title">Personal Portfolio</span> | Next.js, Tailwind CSS, Motion, Playwright |
-          christian-esquillo-portfolio.vercel.app
-        </p>
+      <div class="project">
+        <div class="head">
+          <h3>Amara Bakery <span class="desc">· storefront design and build</span></h3>
+          <span class="side">amara-bakery-iota.vercel.app · 2026</span>
+        </div>
+        <p class="tech">Next.js, TypeScript, Tailwind CSS, GSAP</p>
         <ul>
-          <li>Designed and built from scratch, with live UI demos, unit and browser tests, and top Lighthouse scores.</li>
+          <li>Designed a warm bakery brand and built it with a full demo ordering flow and scroll animations.</li>
         </ul>
       </div>
     </section>
 
     <section>
-      <h2>Relevant Experience</h2>
-      <p><b>Lead Front-End Developer</b> | TaskBuddy (Thesis Project, team of 4)</p>
+      <h2>Skills</h2>
+      <div class="skills">
+        <p><b>Frontend:</b> React, Next.js, Tailwind CSS, Motion, GSAP, Radix UI</p>
+        <p><b>Backend &amp; data:</b> Node.js, Supabase, PostgreSQL, SQLite, Cloudflare Workers</p>
+        <p><b>Mobile:</b> React Native, Expo</p>
+        <p><b>Languages:</b> TypeScript, JavaScript, HTML, CSS, Python</p>
+        <p><b>Tools &amp; testing:</b> Git, GitHub, Vercel, Figma, Vitest, Playwright</p>
+        <p><b>Practices:</b> Accessibility, responsive design, offline-first, testing</p>
+      </div>
     </section>
 
-    <section class="lines">
-      <h2>What I'm Seeking</h2>
-      <p><b>Open to:</b> Internships</p>
-      <p><b>Focus Areas:</b> Frontend development | Web development | UI design</p>
+    <section>
+      <h2>Education</h2>
+      <div class="head">
+        <h3>De La Salle Lipa <span class="desc">· BS Computer Science</span></h3>
+        <span class="side">Expected 2027</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <p>
+        DataCamp: AI-Assisted Coding for Developers, Introduction to AI Agents, Understanding Prompt Engineering,
+        Introduction to Python
+      </p>
     </section>
   </body>
 </html>
