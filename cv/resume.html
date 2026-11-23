@@ -13,7 +13,7 @@
       /* One column, black text, real headings: easy to scan and readable by applicant tracking systems. */
       @page {
         size: A4;
-        margin: 12mm 15mm;
+        margin: 10mm 15mm;
       }
       * {
         box-sizing: border-box;
@@ -22,7 +22,7 @@
       }
       body {
         font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
-        font-size: 10.4pt;
+        font-size: 10.5pt;
         line-height: 1.4;
         color: #111;
       }
@@ -30,8 +30,8 @@
         color: inherit;
         text-decoration: none;
       }
-      .muted {
-        color: #555;
+      header {
+        text-align: center;
       }
       header h1 {
         font-size: 22pt;
@@ -48,12 +48,13 @@
         margin-top: 5pt;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 1pt 14pt;
         font-size: 9.6pt;
         color: #333;
       }
       section {
-        margin-top: 10pt;
+        margin-top: 9pt;
         break-inside: avoid;
       }
       /* Heading with a thin line running beside it. */
@@ -75,7 +76,7 @@
         background: #bbb;
       }
       .project {
-        margin-top: 7pt;
+        margin-top: 6pt;
         break-inside: avoid;
       }
       .project:first-of-type {
@@ -88,7 +89,7 @@
         gap: 12pt;
       }
       h3 {
-        font-size: 10.8pt;
+        font-size: 11.2pt;
         font-weight: 700;
       }
       h3 .desc {
@@ -99,12 +100,16 @@
         color: #444;
         white-space: nowrap;
       }
+      .side a {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
       .tech {
         font-size: 9.2pt;
         color: #555;
       }
       ul {
-        margin-top: 2pt;
+        margin-top: 1pt;
         padding-left: 14pt;
       }
       li {
@@ -121,7 +126,7 @@
   <body>
     <header>
       <h1>Christian Gerald Emmanuel Esquillo</h1>
-      <p class="title">Full-Stack Developer, frontend focus</p>
+      <p class="title">Full-Stack Developer · Frontend Focus</p>
       <p class="contact">
         <span>Lipa City, Batangas, Philippines</span>
         <!--PHONE-->
@@ -135,9 +140,9 @@
     <section>
       <h2>Summary</h2>
       <p>
-        Computer Science student who builds web and mobile apps end to end: React and React Native interfaces on
-        the front, Supabase, PostgreSQL and Cloudflare Workers behind them. I care most about clear, accessible UI and
-        I ship with tests. Looking for a frontend or full-stack web development internship.
+        BS Computer Science student at De La Salle Lipa and frontend lead on a four-person thesis team. I focus on web
+        interfaces with React and Next.js, and also build React Native apps and backend features with Supabase.
+        For TaskBuddy, I built the marketing site and integrated the admin console with backend APIs.
       </p>
     </section>
 
@@ -150,87 +155,91 @@
     </section>
 
     <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <p><b>Languages:</b> TypeScript, JavaScript, HTML, CSS, Python, C++</p>
+        <p><b>Web and mobile:</b> React, Next.js, React Native, Expo, Vite, React Router</p>
+        <p><b>UI design:</b> Figma, Tailwind CSS, Radix UI, GSAP, Motion, responsive layouts, accessible dialogs</p>
+        <p><b>Backend and data:</b> Node.js, Supabase, PostgreSQL, SQLite, Firebase, Cloudflare Workers</p>
+        <p><b>Integrations:</b> REST APIs, Google Sign-In, Xendit payments, barcode and food data APIs</p>
+        <p><b>Testing and delivery:</b> Vitest, Playwright, Git, GitHub, Vercel, Cloudflare</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <p><b>DataCamp</b> · AI-Assisted Coding for Developers, Introduction to AI Agents, Understanding Prompt Engineering, Introduction to Python</p>
+    </section>
+
+    <section>
       <h2>Projects</h2>
 
       <div class="project">
         <div class="head">
           <h3>TaskBuddy <span class="desc">· home-services marketplace, thesis</span></h3>
-          <span class="side">Lead frontend developer, team of 4 · 2026</span>
+          <span class="side"><a href="https://taskbuddy-nine-zeta.vercel.app">Project website</a> · 2026</span>
         </div>
-        <p class="tech">Next.js, React Native, Expo, TypeScript, Supabase, PostgreSQL, Remotion</p>
+        <p class="tech">React Native, Expo, Next.js, TypeScript, Supabase, PostgreSQL, Xendit, Remotion</p>
         <ul>
-          <li>Led the frontend of a marketplace where an ML model invites the best-matched providers to each job.</li>
-          <li>Built most of the mobile app: client and provider flows, payments, messages and ID verification.</li>
-          <li>Backend work in Supabase: certificate checks before hiring, fee locked at hire, Google Sign-In.</li>
-          <li>Built the marketing website and produced a promo film and 17 how-to videos with Remotion.</li>
+          <li>Led frontend development and built mobile flows for escrow (test mode), earnings, chat, and verification.</li>
+          <li>Built the marketing site, connected the admin console to APIs, and added Google Sign-In and hiring checks.</li>
+          <li>Produced a 60-second promo and 17 narrated guide videos using Remotion.</li>
         </ul>
       </div>
 
       <div class="project">
         <div class="head">
           <h3>Clam <span class="desc">· Filipino-first calorie tracker, solo</span></h3>
-          <span class="side">clam.discipleat.workers.dev · 2026, ongoing</span>
+          <span class="side"><a href="https://clam.discipleat.workers.dev">Live demo</a> · 2026, ongoing</span>
         </div>
-        <p class="tech">Expo, React Native Web, TypeScript, SQLite, Cloudflare Workers, Workers AI</p>
+        <p class="tech">Expo, React Native Web, TypeScript, SQLite, Cloudflare Workers</p>
         <ul>
-          <li>Installable web app that works offline and keeps every diary on the device in SQLite.</li>
-          <li>Cloudflare Worker serves the app, proxies food search and runs AI photo scans without storing user data.</li>
-          <li>Filipino food data first, barcode lookup, and health guardrails such as a minimum calorie limit.</li>
+          <li>Designed and built an installable tracker with offline meal logs stored in SQLite on the device.</li>
+          <li>Integrated FNRI and USDA food search, Open Food Facts barcode lookup, and AI photo scans.</li>
         </ul>
       </div>
 
       <div class="project">
         <div class="head">
           <h3>ImagePrep <span class="desc">· open-source image tool</span></h3>
-          <span class="side">imageprep.pages.dev · 2026</span>
+          <span class="side"><a href="https://imageprep.pages.dev">Live demo</a> · 2026</span>
         </div>
-        <p class="tech">React, TypeScript, Vite</p>
+        <p class="tech">React, TypeScript, Vite, JSZip</p>
         <ul>
-          <li>Resizes and converts images in batches, entirely in the browser with no uploads.</li>
+          <li>Built browser-based JPEG, PNG, and WebP batch conversion with previews, file-size comparisons, and ZIP export.</li>
         </ul>
       </div>
 
       <div class="project">
         <div class="head">
           <h3>PageKit <span class="desc">· open-source PDF organizer</span></h3>
-          <span class="side">pagekit-bdy.pages.dev · 2026</span>
+          <span class="side"><a href="https://pagekit-bdy.pages.dev">Live demo</a> · 2026</span>
         </div>
-        <p class="tech">React, TypeScript, pdf-lib, Playwright</p>
+        <p class="tech">React, TypeScript, PDF.js, pdf-lib, Playwright</p>
         <ul>
-          <li>Combine, reorder, rotate and split PDF pages locally, with undo, redo and browser tests.</li>
+          <li>Built local PDF reordering, undo and redo, and page-range export, with Playwright tests for key workflows.</li>
         </ul>
       </div>
 
       <div class="project">
         <div class="head">
           <h3>Amara Bakery <span class="desc">· storefront design and build</span></h3>
-          <span class="side">amara-bakery-iota.vercel.app · 2026</span>
+          <span class="side"><a href="https://amara-bakery-iota.vercel.app">Live demo</a> · 2026</span>
         </div>
         <p class="tech">Next.js, TypeScript, Tailwind CSS, GSAP</p>
         <ul>
-          <li>Designed a warm bakery brand and built it with a full demo ordering flow and scroll animations.</li>
+          <li>Designed a 12-product storefront with filters, a saved cart, and GSAP animations that respect reduced motion.</li>
         </ul>
       </div>
     </section>
 
     <section>
-      <h2>Skills</h2>
+      <h2>What I’m Seeking</h2>
       <div class="skills">
-        <p><b>Frontend:</b> React, Next.js, Tailwind CSS, Motion, GSAP, Radix UI</p>
-        <p><b>Backend &amp; data:</b> Node.js, Supabase, PostgreSQL, SQLite, Cloudflare Workers</p>
-        <p><b>Mobile:</b> React Native, Expo</p>
-        <p><b>Languages:</b> TypeScript, JavaScript, HTML, CSS, Python</p>
-        <p><b>Tools &amp; testing:</b> Git, GitHub, Vercel, Figma, Vitest, Playwright</p>
-        <p><b>Practices:</b> Accessibility, responsive design, offline-first, testing</p>
+        <p><b>Open to:</b> Frontend and full-stack development internships.</p>
+        <p><b>Focus:</b> Web frontend development with React and Next.js, with flexibility to work on React Native apps.</p>
+        <p><b>Work setup:</b> On-site or hybrid.</p>
       </div>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <p>
-        DataCamp: AI-Assisted Coding for Developers, Introduction to AI Agents, Understanding Prompt Engineering,
-        Introduction to Python
-      </p>
     </section>
   </body>
 </html>
